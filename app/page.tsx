@@ -21,9 +21,6 @@ export default function Home() {
                         <h1 className='text-3xl md:text-4xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4'>
                             До конца осталось
                         </h1>
-                        <p className="text-gray-400 text-lg">
-                            Таймер обратного отсчета до 17 февраля 2027 года
-                        </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
@@ -45,8 +42,6 @@ export default function Home() {
 
                     <div className="mt-12 w-full max-w-2xl">
                         <div className="flex justify-between text-sm text-gray-400 mb-2">
-                            <span>17.02.2025</span>
-                            <span>Сегодня</span>
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-3">
                             <div
@@ -57,7 +52,6 @@ export default function Home() {
                             />
                         </div>
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
-                            <span>Начало: 17.02.2025</span>
                             <span>Прошло: {Math.round((timeData.diffInDaysFromStart / timeData.totalDays) * 100)}%</span>
                             <span>Прошло дней: {Math.floor(timeData.diffInDaysFromStart)}</span>
                         </div>
