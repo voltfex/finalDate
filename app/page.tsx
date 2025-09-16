@@ -4,9 +4,41 @@ import React from "react";
 
 import {getFinalDate} from "@/src/lib/getFinalDate";
 
-export default function Home() {
-    const [timeData, setTimeData] = React.useState<any>([]);
+export interface FinalDateResult {
+    diffInMs: number;
+    diffInSeconds: number;
+    diffInMinutes: number;
+    diffInHours: number;
+    diffInDays: number;
+    diffInWeeks: number;
+    diffInMonths: number;
+    diffInYears: number;
+    isPast: boolean;
+    totalDays: number;
+    diffInDaysFromStart: number;
+    startDate: string;
+    currentDate: string;
+    progressPercentage: number;
+}
 
+export default function Home() {
+    const [timeData, setTimeData] = React.useState<FinalDateResult>({
+        currentDate: "",
+        diffInDays: 0,
+        diffInDaysFromStart: 0,
+        diffInHours: 0,
+        diffInMinutes: 0,
+        diffInMonths: 0,
+        diffInMs: 0,
+        diffInSeconds: 0,
+        diffInWeeks: 0,
+        diffInYears: 0,
+        isPast: false,
+        progressPercentage: 0,
+        startDate: "",
+        totalDays: 0
+    });
+    console.log(timeData)
     const timeUnits = timeData ?  [
         {label: "Год", value: timeData.diffInYears, icon: "🕰️"},
         {label: "Месяцев", value: timeData.diffInMonths, icon: "📅"},
