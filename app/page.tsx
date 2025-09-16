@@ -1,17 +1,26 @@
+'use client';
+
+import React from "react";
+
 import {getFinalDate} from "@/src/lib/getFinalDate";
 
 export default function Home() {
-    const timeData = getFinalDate();
+    const [timeData, setTimeData] = React.useState<any>([]);
 
-    const timeUnits = [
-        {label: "Лет", value: timeData.diffInYears, icon: "🕰️"},
+    const timeUnits = timeData ?  [
+        {label: "Год", value: timeData.diffInYears, icon: "🕰️"},
         {label: "Месяцев", value: timeData.diffInMonths, icon: "📅"},
         {label: "Недель", value: timeData.diffInWeeks, icon: "🗓️"},
         {label: "Дней", value: timeData.diffInDays, icon: "📆"},
         {label: "Часов", value: timeData.diffInHours, icon: "⏰"},
         {label: "Минут", value: timeData.diffInMinutes, icon: "⏱️"},
         {label: "Секунд", value: timeData.diffInSeconds, icon: "⚡"}
-    ];
+    ] : [];
+
+    React.useEffect(() => {
+        const data = getFinalDate();
+        setTimeData(data);
+    }, [])
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white p-8 pb-20">
